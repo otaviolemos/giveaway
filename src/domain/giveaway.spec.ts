@@ -15,4 +15,17 @@ describe('Giveaway', () => {
     ga.addParticipant(p)
     expect(ga.participants).not.toContain(p)
   })
+
+  test('should draw random participant', () => {
+    const p1 = new Participant('otavio', 'otavio@mail.com', 10)
+    const p2 = new Participant('john', 'john@mail.com', 9)
+    const p3 = new Participant('junior', 'junior@mail.com', 8)
+    const ga = new GiveAway(8)
+    ga.addParticipant(p1)
+    ga.addParticipant(p2)
+    ga.addParticipant(p3)
+    const drawn = ga.draw()
+    expect(drawn === p1 || drawn === p2 || drawn === p3).toBeTruthy()
+    console.log(drawn)
+  })
 })

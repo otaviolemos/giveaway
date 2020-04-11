@@ -1,7 +1,7 @@
 import { Participant } from './participant'
 
 export class GiveAway {
-  minscore: number
+  minscore: number = 0
   participants: Participant[] = []
 
   constructor (minscore: number) {
@@ -12,5 +12,9 @@ export class GiveAway {
     if (p.score >= this.minscore) {
       this.participants.push(p)
     }
+  }
+
+  draw (): Participant {
+    return this.participants[Math.floor(Math.random() * this.participants.length)]
   }
 }
