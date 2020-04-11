@@ -1,6 +1,6 @@
 import { Participant } from './participant'
 
-export class GiveAway {
+export class Giveaway {
   minscore: number = 0
   participants: Participant[] = []
 
