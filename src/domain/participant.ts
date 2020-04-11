@@ -1,7 +1,7 @@
 export class Participant {
-  public name: string
-  public email: string
-  public score: number
+  name: string
+  email: string
+  score: number
 
   constructor (name: string, email: string, score: number) {
     this.name = name
