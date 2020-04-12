@@ -19,4 +19,15 @@ describe('Add participant to giveaway', () => {
     aptg.addParticipantsToGiveaway()
     expect(aptg.giveaway.participants).toContain(p1)
   })
+
+  test('should not add a participant with inadequate score', () => {
+    const ga = new CreateGiveaway().createGiveaway(8)
+    const p3 = new Participant('junior', 'junior@mail.com', 7)
+    var plist: Participant[] = []
+    plist.push(p3)
+    const pr: ParticipantRepository = new InMemoryParticipantRepository(plist)
+    const aptg = new AddParticipantToGiveaway(ga, pr)
+    aptg.addParticipantsToGiveaway()
+    expect(aptg.giveaway.participants).not.toContain(p3)
+  })
 })
