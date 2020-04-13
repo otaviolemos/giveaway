@@ -17,7 +17,7 @@ export class Giveaway {
   draw (): Participant {
     const n = Math.floor(Math.random() * this.participants.length)
     const p = this.participants[n]
-    this.participants.splice(n)
+    this.participants.splice(n, 1)
     return p
   }
 }
