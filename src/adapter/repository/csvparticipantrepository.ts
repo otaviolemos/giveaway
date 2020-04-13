@@ -12,7 +12,6 @@ export class CsvParticipantRepository implements ParticipantRepository {
     csv.forEach(element => {
       this.lp.push(this.formatFromCsv(element.Nome, element.email, element.score))
     })
-    console.log(this.lp)
   }
 
   findAllParticipants (): Participant[] {

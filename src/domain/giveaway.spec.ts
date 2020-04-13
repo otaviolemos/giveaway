@@ -26,6 +26,5 @@ describe('Giveaway', () => {
     ga.addParticipant(p3)
     const drawn = ga.draw()
     expect(drawn === p1 || drawn === p2 || drawn === p3).toBeTruthy()
-    console.log(drawn)
   })
 })
