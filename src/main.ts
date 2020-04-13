@@ -11,6 +11,14 @@ export class Main {
     addParticipants.addParticipantsToGiveaway()
     const drawWinners = new DrawWinnersFromGiveaway(giveaway)
     const winners = drawWinners.drawWinners(10)
-    console.log(winners)
+    winners.forEach((element) => {
+      console.log(this.toTitleCase(element.name))
+    })
+  }
+
+  toTitleCase (str: string): string {
+    return str.replace(/\w\S*/g, function (txt) {
+      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    })
   }
 }
