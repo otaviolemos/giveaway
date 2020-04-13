@@ -5,7 +5,7 @@ describe('Main', () => {
     const m = new Main()
     m.main()
   })
-  test('should correctly format to title case', () => {
+  test('should correctly format to title case and write to text file', () => {
     const s = 'otávio augusto lazzarini lemos'
     const m = new Main()
     expect(m.toTitleCase(s)).toEqual('Otávio Augusto Lazzarini Lemos')

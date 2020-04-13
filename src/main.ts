@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { CreateGiveaway } from './usecase/creategiveaway'
 import { CsvParticipantRepository } from './adapter/repository/csvparticipantrepository'
 import { AddParticipantToGiveaway } from './usecase/addparticipanttogiveaway'
@@ -13,6 +14,11 @@ export class Main {
     const winners = drawWinners.drawWinners(10)
     winners.forEach((element) => {
       console.log(this.toTitleCase(element.name))
+    })
+    const fs = require('fs')
+    var util = require('util')
+    fs.writeFile('winners.txt', util.inspect(winners), (err: Error) => {
+      if (err != null) throw err
     })
   }
 
