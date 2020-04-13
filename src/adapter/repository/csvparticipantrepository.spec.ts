@@ -11,4 +11,8 @@ describe('CSV participant repository', () => {
     expect(plist[0].score).toEqual(8)
     expect(plist[0].email).toEqual('vinicius@mail.com')
   })
+  test('should correctly format to title case and write to text file', () => {
+    const s = 'otávio augusto lazzarini lemos'
+    expect(CsvParticipantRepository.toTitleCase(s)).toEqual('Otávio Augusto Lazzarini Lemos')
+  })
 })
