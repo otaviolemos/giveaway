@@ -12,19 +12,17 @@ export class Main {
     addParticipants.addParticipantsToGiveaway()
     const drawWinners = new DrawWinnersFromGiveaway(giveaway)
     const winners = drawWinners.drawWinners(10)
+    var winnersNames = ''
     winners.forEach((element) => {
-      console.log(this.toTitleCase(element.name))
+      winnersNames += element.name + '\n'
     })
     const fs = require('fs')
     var util = require('util')
     fs.writeFile('winners.txt', util.inspect(winners), (err: Error) => {
       if (err != null) throw err
     })
-  }
-
-  toTitleCase (str: string): string {
-    return str.replace(/\w\S*/g, function (txt) {
-      return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase()
+    fs.writeFile('names.txt', winnersNames, (err: Error) => {
+      if (err != null) throw err
     })
   }
 }
